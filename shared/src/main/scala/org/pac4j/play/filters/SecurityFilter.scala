@@ -138,7 +138,6 @@ class SecurityFilter @Inject()(configuration: Configuration, playSessionStore: P
     path.replaceAll("(/){2,}", "$1")
 
   private def createResultSimple(javaContext: Http.Context, javaResult: play.mvc.Result): play.api.mvc.Result = {
-    import scala.collection.convert.decorateAsScala._
     val scalaResult = javaResult.asScala
     scalaResult
       .withHeaders(javaContext.response.getHeaders.asScala.toSeq: _*)

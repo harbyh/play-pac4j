@@ -8,13 +8,13 @@
         <version>8.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>play-pac4j_2.11</artifactId>
+    <artifactId>play-pac4j_2.13</artifactId>
     <packaging>jar</packaging>
-    <name>pac4j implementation for Play framework (Scala 2.11)</name>
-    <description>Security library for Play framework based on pac4j using Scala 2.11</description>
+    <name>pac4j implementation for Play framework (Scala 2.13)</name>
+    <description>Security library for Play framework based on pac4j using Scala 2.13</description>
 
     <properties>
-        <scala.version>2.11</scala.version>
+        <scala.version>2.13</scala.version>
     </properties>
 
     <dependencies>
@@ -51,7 +51,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
-         </dependency>
+        </dependency>
 
         <!-- tests -->
         <dependency>
@@ -60,14 +60,7 @@
             <version>${play.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.version}</artifactId>
-            <version>3.0.5</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-
 
     <build>
         <testSourceDirectory>../shared/src/test/java</testSourceDirectory>

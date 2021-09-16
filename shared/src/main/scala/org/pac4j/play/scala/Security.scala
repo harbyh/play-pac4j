@@ -50,7 +50,6 @@ trait Security[P<:CommonProfile] extends BaseController {
 
 
 case class SecureAction[P<:CommonProfile, ContentType, R[X]>:AuthenticatedRequest[P, X]<:Request[X]](clients: String, authorizers: String, matchers: String, multiProfile: Boolean, parser: BodyParser[ContentType], playSessionStore: PlaySessionStore, config: Config)(implicit implicitExecutionContext: ExecutionContext) extends ActionBuilder[R, ContentType] {
-  import scala.collection.JavaConversions._
   import scala.compat.java8.FutureConverters._
   import scala.concurrent.Future
   import play.core.j.JavaHelpers
@@ -103,7 +102,7 @@ case class SecureAction[P<:CommonProfile, ContentType, R[X]>:AuthenticatedReques
         val profileManager = new ProfileManager[P](webContext)
         val profiles = profileManager.getAll(true)
         logger.debug("profiles: {}", profiles)
-        block(AuthenticatedRequest(asScalaBuffer(profiles).toList, request))
+        block(AuthenticatedRequest(profiles.asScala.toList, request))
       } else {
         Future successful {
           JavaHelpers.createResult(javaContext, r)

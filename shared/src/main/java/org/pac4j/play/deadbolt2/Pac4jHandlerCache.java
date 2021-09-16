@@ -1,6 +1,5 @@
 package org.pac4j.play.deadbolt2;
 
-import be.objectify.deadbolt.java.ConfigKeys;
 import be.objectify.deadbolt.java.DeadboltHandler;
 import be.objectify.deadbolt.java.cache.HandlerCache;
 import org.pac4j.core.config.Config;
@@ -42,7 +41,7 @@ public class Pac4jHandlerCache implements HandlerCache {
         this.playSessionStore = playSessionStore;
         this.roleHandler = roleHandler;
         defaultHandler = new Pac4jHandler(config, httpExecutionContext, null, playSessionStore, roleHandler);
-        handlers.put(ConfigKeys.DEFAULT_HANDLER_KEY, defaultHandler);
+        handlers.put("defaultHandler", defaultHandler);
     }
 
     @Override
